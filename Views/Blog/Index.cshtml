@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+<section>
+    <article class="max-w-7xl mx-auto mt-12">
+        <h1 class="text-xl font-bold">Tüm Bloglarımıza Göz Atın</h1>
+        <div class="grid grid-cols-3 gap-5 mt-5" id="blogList">
+
+        </div>
+    </article>
+</section>
+
+
+<script type="module">
+
+    import { blogPrint } from '/js/api/blog.js';
+    blogPrint();
+
+</script>

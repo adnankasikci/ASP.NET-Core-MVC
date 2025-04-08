@@ -1,0 +1,26 @@
+@{
+    ViewData["Title"] = "Admin";
+    ViewData["Description"] = "Admin";
+    ViewData["Message"] = "Hoş Geldiniz!";
+}
+
+
+<main>
+    <section class="min-h-[calc(100vh-5rem)] p-7">
+        <div class="text-xl font-bold ">
+            <?php echo 'Hoşgeldiniz!' . ' ' . $admin['company_name'] . ' ' . $admin['company_surname'] ?>
+        </div>
+        <p class="mt-2 text-sm text-gray-500 mb-7">Burası
+            <?= $page_name ?> Bölümüdür.
+        </p>
+        <article class="p-4 bg-white rounded-md shadow">
+
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                <a href="admin/blog/show" class="p-4 text-white bg-blue-600 rounded-md">Bloglarlarınıza Gidin</a>
+                <a href="admin/blog/show" class="p-4 text-white bg-green-600 rounded-md">Profil Ayarlarınıza Gidin
+                    Gidin</a>
+            </div>
+
+        </article>
+    </section>
+</main>

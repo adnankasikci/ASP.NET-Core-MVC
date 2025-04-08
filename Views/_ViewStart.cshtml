@@ -1,0 +1,16 @@
+﻿@* @{
+Layout = "_Layout";
+} *@
+
+
+
+@{
+    if (Context.Request.Path.StartsWithSegments("/admin"))
+    {
+        Layout = "_AdminLayout";
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
+}

@@ -1,0 +1,74 @@
+@model List<AppSpace.Models.Blogs>
+
+<section class="min-h-[calc(100vh-5rem)] p-7">
+    <div class="text-xl font-bold ">
+        Sayfa Adı
+    </div>
+    <p class="mt-2 text-sm text-gray-500 mb-7">Panel - Name / Genel Düzenleme
+    </p>
+    <div class="p-4 bg-white rounded-md shadow">
+        <div class="flex items-center justify-between mb-4 ">
+            <div class="text-2xl font-bold">Bloglarınız</div>
+            <a href="add"
+                class="px-4 py-2 text-sm text-white duration-300 bg-green-600 rounded-md cursor-pointer hover:bg-green-500">Yeni
+                Ekle</a>
+        </div>
+        <div class="overflow-x-auto">
+            <table class="w-full overflow-hidden bg-white border border-gray-300 rounded-md table-auto">
+                <thead class="text-left text-white bg-gray-800">
+                    <tr>
+                        <th class="py-3 pl-6 font-medium">No</th>
+                        <th class="px-6 py-3 font-medium">Blog Başlığı</th>
+                        <th class="px-6 py-3 font-medium">Tarih</th>
+                        <th class="px-6 py-3 font-medium text-center" colspan="2">Blog Düzenle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var blog in Model)
+                    {
+                        <tr class="<?= $index % 2 === 0 ? 'bg-gray-100' : 'bg-white'; ?> transition hover:bg-green-100">
+                            <td class="px-6">
+                                @blog.Id
+                            </td>
+                            <td class="px-6">
+                                @blog.Title
+                            </td>
+                            <td class="px-6">
+                                @blog.Title
+                            </td>
+                            <td class="flex items-center justify-center px-6 py-3 space-x-3">
+                                <form action="guncelle/@blog.Id" method="POST">
+                                    <input type="hidden" name="blog_id" value="@blog.Id">
+                                    <button
+                                        class="px-4 py-2 text-white transition bg-green-600 rounded-md hover:bg-green-500"
+                                        type="submit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </form>
+                                <form method="POST">
+                                    <input type="hidden" class="idBlog" name="blog_id" value="@blog.Id">
+                                    <div class="blogDeleteButton px-4 py-2 text-white transition bg-red-600 rounded-md hover:bg-red-500"
+                                        type="submit">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </div>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<script type="module">
+    import { blogDelete } from '/js/api/blog.js';
+
+    document.querySelectorAll(".blogDeleteButton").forEach(button => {
+        button.addEventListener("click", () => {
+            const blog_id = button.closest("td").querySelector(".idBlog").value;
+            console.log(blog_id);
+            blogDelete(blog_id);
+        });
+    });
+</script>

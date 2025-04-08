@@ -1,0 +1,79 @@
+﻿@model List<AppSpace.Models.Blogs>
+
+@{
+    ViewData["Title"] = "Anasayfa";
+    ViewData["Description"] = "Anasayfa";
+    ViewData["Message"] = "Hoş Geldiniz!";
+}
+
+<main>
+    <div class="text-center">
+        <div class="max-w-7xl mx-auto mt-12 flex flex-col lg:flex-row items-start justify-between gap-12">
+            <div class="banner h-96 min-w-[20rem]">
+                <div class="swiper swiperHomeBanner h-full">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide rounded-md overflow-hidden">
+                            <div class="relative h-full ">
+                                <img class="w-full h-full object-cover" src="/img/others/s1.jpeg" alt="Görsel">
+                                <div
+                                    class="absolute bottom-0 left-0 bg-[#ffffff48] w-full py-7  backdrop-blur-3xl text-white text-start p-4">
+                                    Blog Dünyasına Yeni Bir Gösteri!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide rounded-md overflow-hidden">
+                            <div class="relative h-full ">
+                                <img class="w-full h-full object-cover" src="/img/others/s2.jpg" alt="Görsel">
+                                <div
+                                    class="absolute bottom-0 left-0 bg-[#ffffff48] w-full py-7  backdrop-blur-3xl text-white text-start p-4">
+                                    Blog Dünyasına Yeni Bir Gösteri!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide rounded-md overflow-hidden">
+                            <div class="relative h-full ">
+                                <img class="w-full h-full object-cover" src="/img/others/s3.webp" alt="Görsel">
+                                <div
+                                    class="absolute bottom-0 left-0 bg-[#ffffff48] w-full py-7  backdrop-blur-3xl text-white text-start p-4">
+                                    Blog Dünyasına Yeni Bir Gösteri!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiperHomeBanner-autoplay-progress opacity-50">
+                        <svg viewBox="0 0 48 48">
+                            <circle cx="24" cy="24" r="20"></circle>
+                        </svg>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-indigo-50 self-stretch max-w-[25rem] rounded-sm p-5">
+                <div class="flex justify-between text-sm">
+                    <div class="font-bold text-indigo-500">Popular Blogs</div>
+                    <div class="font-bold text-indigo-500">5</div>
+                </div>
+                <div class="flex flex-col" id="popularBlogs">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<section>
+    <article class="max-w-7xl mx-auto my-12">
+        <h1 class="text-xl font-bold">Tüm Bloglarımıza Göz Atın</h1>
+        <div class="grid grid-cols-3 gap-5 mt-5" id="blogList">
+        </div>
+    </article>
+</section>
+
+
+<script type="module">
+
+    import { blogPrint } from '/js/api/blog.js';
+    blogPrint();
+
+</script>

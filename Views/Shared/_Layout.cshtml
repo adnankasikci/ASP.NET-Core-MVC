@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/tailwindOut.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/fontawesome/css/all.min.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/components/SwiperSlider.css" asp-append-version="true" />
+
+    <link href="~/lib/swiper/swiper-bundle.min.css" rel="stylesheet" asp-append-version="true" />
+
+</head>
+
+<body>
+
+    <partial name="Partials/Header" />
+
+    @RenderBody()
+
+    <partial name="Partials/Footer" />
+
+</body>
+
+</html>

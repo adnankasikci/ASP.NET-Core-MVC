@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"] = "Blog Detay";
+}
+
+<section>
+    <article class="py-10 max-w-7xl mx-auto ">
+        <div class="flex flex-col lg:space-x-10 lg:flex-row" id="blogDetay">
+
+
+        </div>
+    </article>
+</section>
+
+
+<script type="module">
+    import { blogDetayPrint } from '/js/api/blog.js';
+    const blogId = @Model;
+    blogDetayPrint(blogId);
+
+</script>

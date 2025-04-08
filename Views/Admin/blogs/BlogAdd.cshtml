@@ -1,0 +1,72 @@
+<section class="min-h-[calc(100vh-5rem)] p-7">
+
+    <div class="text-xl font-bold ">
+        Sayfa Adı Seçenekleri
+    </div>
+    <p class="mt-2 text-sm text-gray-500 mb-7">Panel -
+        Sayfa Adı / Genel Düzenleme
+    </p>
+
+    <div class="p-4 bg-white rounded-md shadow">
+        <div class="mb-4 text-2xl font-bold">Blog Oluştur</div>
+
+        <form id="blogAddForm" enctype="multipart/form-data" accept-charset="utf-8">
+            <div class="flex flex-col w-full md:flex-row md:space-x-6">
+                <div class="flex flex-col w-full space-y-2 font-medium">
+                    <label for="blog_title">Blog Başlığı</label>
+                    <input type="text" id="blog_title" class="p-3 text-sm bg-gray-100 rounded-md" name="blog_title"
+                        placeholder="Blog başlığı giriniz">
+                </div>
+                <div class="flex flex-col w-full mt-5 space-y-2 font-medium md:mt-0">
+                    <label for="blog_description">Açıklama</label>
+                    <input type="text" id="blog_description" class="p-3 text-sm bg-gray-100 rounded-md"
+                        name="blog_description" placeholder="Metin açıklamasını yazınız">
+                </div>
+            </div>
+            <div class="mt-5">
+                <input type="hidden" id="blog_content" name="blog_content">
+                <div class="resize-none" id="editor"></div>
+            </div>
+
+            <div class="flex items-center justify-between w-full mt-5 font-medium ">
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center">
+                        <label for="blog_photo"
+                            class="px-4 py-3 text-sm text-white duration-300 bg-green-600 rounded-md cursor-pointer hover:bg-green-500">
+                            Blog Resmi Yükle
+                        </label>
+                        <input type="file" name="blog_photo" id="blog_photo" class="hidden">
+                    </div>
+                    <!-- <span class="text-sm text-green-500">Resim Yüklendi</span> -->
+                </div>
+                <button class="px-4 py-3 text-sm text-black duration-300 rounded-md cursor-pointer bg-slate-300"
+                    type="submit" name="blogButton">Gönder</button>
+            </div>
+        </form>
+        <div>Error</div>
+    </div>
+</section>
+
+<script type="module">
+    import { blogAdd } from '/js/api/blog.js';
+
+    const quill = new Quill('#editor', { theme: 'snow' });
+
+    document.getElementById("blogAddForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const blog_title = document.getElementById("blog_title").value;
+        const blog_description = document.getElementById("blog_description").value;
+        const blog_content = quill.root.innerHTML;
+        const blog_photo = document.getElementById("blog_photo").files[0];
+
+        const formData = new FormData();
+        formData.append("postBlog.Title", blog_title);
+        formData.append("postBlog.Subtitle", blog_description);
+        formData.append("postBlog.Content", blog_content);
+        formData.append("postBlog.Url", blog_title);
+        formData.append("blog_photo", blog_photo);
+
+        blogAdd(formData);
+    });
+</script>

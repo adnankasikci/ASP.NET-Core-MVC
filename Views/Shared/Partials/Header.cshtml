@@ -1,0 +1,32 @@
+<!-- Header Kısmı. -->
+@* @Html.Partial("Partials/Headers/Header") *@
+@* @await Html.PartialAsync("Partials/Headers/Header") *@
+
+
+<header>
+    <nav class="bg-indigo-500 py-2 text-indigo-100">
+        <div class="max-w-7xl mx-auto text-sm flex items-center justify-between">
+            <div>.NET ile Hazırlanan Blog Sitesi</div>
+            <div>TailwindCSS V4 / 8.0 .NET</div>
+        </div>
+    </nav>
+    <div class="py-4 bg-indigo-50">
+        <div class="max-w-7xl mx-auto font-semibold">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-8">
+                    <a href="/" class="hover:text-indigo-500 duration-300 text-sm text-indigo-900">Anasayfa</a>
+                    <a href="/blog" class="hover:text-indigo-500 duration-300 text-sm text-indigo-900">Blogs</a>
+                </div>
+                <div>
+                    <a href="/admin" class="hover:text-indigo-500 duration-300">
+                        <div
+                            class="flex items-center gap-2 text-sm border border-indigo-500 rounded-full py-2 px-4 text-indigo-500 hover:bg-indigo-500 duration-300 hover:text-indigo-50">
+                            <i class="fa-solid fa-user "></i>
+                            <div>Oturum Aç</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
